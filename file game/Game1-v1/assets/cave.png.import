@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m656wgh10e47"
-path="res://.godot/imported/roads2W.png-76c19ce2b38cf8ee63d82e0eb8a83026.ctex"
+uid="uid://bt43venlkc7j5"
+path="res://.godot/imported/cave.png-b6a7e5188baf172ddc1950c18874089b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roads2W.png"
-dest_files=["res://.godot/imported/roads2W.png-76c19ce2b38cf8ee63d82e0eb8a83026.ctex"]
+source_file="res://assets/cave.png"
+dest_files=["res://.godot/imported/cave.png-b6a7e5188baf172ddc1950c18874089b.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
