@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Game1-v1"
 
+[global_group]
+
+box=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

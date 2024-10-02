@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var size_x = 0
 @export var size_y = 0
 
+signal box_area(val)
+
 var delta_sensor = 20
 var animation_speed = 3
 var moving = false
@@ -27,6 +29,7 @@ func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
 
+
 func _unhandled_input(event):
 	last_direction = direction
 	if moving:
@@ -34,6 +37,8 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
+		if event.is_action_pressed("ui_text_indent"):
+			print("tes")
 
 func move(dir):
 	ray.target_position = inputs[dir] * (tile_size)
@@ -46,7 +51,7 @@ func move(dir):
 		action_move(dir)
 	else:
 		col = ray.get_collider()
-		if col.name == "Box":
+		if col.is_in_group("box"):
 			if col.move(dir):
 				action_move(dir)
 	
@@ -67,4 +72,3 @@ func _on_sensor_body_exited(body):
 	box_status = false
 	box_body = null
 	count = 0
-	

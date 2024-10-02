@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_524fx"]
 size = Vector2(30, 30)
 
-[node name="Box" type="CharacterBody2D"]
+[node name="Box" type="CharacterBody2D" groups=["box"]]
 collision_layer = 3
 script = ExtResource("1_lry3x")
 
@@ -17,3 +17,22 @@ texture = ExtResource("1_ff8b0")
 shape = SubResource("RectangleShape2D_524fx")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
