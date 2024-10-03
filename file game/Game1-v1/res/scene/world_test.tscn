@@ -2948,13 +2948,16 @@ target = "oksigen"
 
 [node name="Target2" parent="." instance=ExtResource("7_po30f")]
 position = Vector2(363, 110)
+id = 1
 target = "darah"
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="canvas" instance=ExtResource("7_cwrj0")]
-offset_left = -53.0
-offset_right = -53.0
+offset_top = -1.0
+offset_bottom = -1.0
+text = "makan kue {0} aaa {1}"
+box_count = 2
 sec = 60
 min = 3
 
