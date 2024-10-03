@@ -20,32 +20,38 @@ offset_bottom = -589.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.002
-anchor_right = 0.223
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.304
-offset_top = 1.0
-offset_right = 1.104
-offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.182
-anchor_right = 0.675
-anchor_bottom = 1.0
-offset_left = -2.66402
-offset_top = 3.0
-offset_right = -3.15509
-offset_bottom = -2.0
+[node name="Label2" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
 text = "Jumlah"
 vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(235, 50)
+layout_mode = 2
+text = "Pertanyaan 1 dari 5"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "pause"
 
 [node name="Timer" type="Timer" parent="."]
 
