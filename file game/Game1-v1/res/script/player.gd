@@ -10,14 +10,13 @@ extends CharacterBody2D
 signal box_area(val)
 
 var delta_sensor = 20
-var animation_speed = 3
+var animation_speed = 2
 var moving = false
 var tile_size = 32
-var inputs = {"ui_right": Vector2.RIGHT,
-			"ui_left": Vector2.LEFT,
-			"ui_up": Vector2.UP,
-			"ui_down": Vector2.DOWN}
-
+var inputs = {"ui_right": [Vector2.RIGHT,"walk right"],
+			"ui_left": [Vector2.LEFT,"walk left"],
+			"ui_up": [Vector2.UP,"walk up"],
+			"ui_down": [Vector2.DOWN,"walk down"]}
 var direction
 var last_direction
 var box_status = false
@@ -37,11 +36,9 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
-		if event.is_action_pressed("ui_text_indent"):
-			print("tes")
 
 func move(dir):
-	ray.target_position = inputs[dir] * (tile_size)
+	ray.target_position = inputs[dir][0] * (tile_size)
 	ray.force_raycast_update()
 	if box_status == true:
 		count += 1
@@ -56,9 +53,10 @@ func move(dir):
 				action_move(dir)
 	
 func action_move(dir):
+	$AnimationPlayer.play(inputs[dir][1])
 	var tween = create_tween()
 	tween.tween_property(self, "position",
-		position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		position + inputs[dir][0] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false

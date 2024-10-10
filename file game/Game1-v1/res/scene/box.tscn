@@ -7,24 +7,31 @@
 size = Vector2(30, 30)
 
 [node name="Box" type="CharacterBody2D" groups=["box"]]
+z_index = 1
+z_as_relative = false
+position = Vector2(-1, -1)
 collision_layer = 3
 script = ExtResource("1_lry3x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
 texture = ExtResource("1_ff8b0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_524fx")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(16, 16)
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 15.0
-offset_bottom = 15.0
+offset_right = 30.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -36,3 +43,4 @@ grow_vertical = 2
 text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

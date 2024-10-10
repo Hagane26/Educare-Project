@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var label = $Control/Label
 @export var value = ""
 @export var can_move = true
-var animation_speed = 3
+var animation_speed = 2
 var moving = false
 var tile_size = 32
 
@@ -16,7 +16,6 @@ var inputs = {"ui_right": Vector2.RIGHT,
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size/2
 	label.text = value
 
 func move(dir):
@@ -37,3 +36,7 @@ func animate_move(dir):
 	await tween.finished
 	moving = false
 	
+
+
+func _on_target_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
