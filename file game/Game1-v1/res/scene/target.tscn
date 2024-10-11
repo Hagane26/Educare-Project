@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cogw5ba5s8uh"]
 
 [ext_resource type="Script" path="res://res/script/target.gd" id="1_n1dyo"]
-[ext_resource type="Texture2D" uid="uid://3c2gbcncem47" path="res://icon.svg" id="2_yjw1e"]
+[ext_resource type="Texture2D" uid="uid://b81ch862gmrmj" path="res://assets/target.png" id="2_ol5yl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbbo7"]
-size = Vector2(32, 30)
+size = Vector2(32, 32)
 
 [node name="Target" type="Area2D"]
 visibility_layer = 2
@@ -12,14 +12,14 @@ script = ExtResource("1_n1dyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-position = Vector2(16, 15)
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_qbbo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visibility_layer = 2
-position = Vector2(16, 15)
-scale = Vector2(0.25, 0.238281)
-texture = ExtResource("2_yjw1e")
+position = Vector2(16, 16)
+scale = Vector2(1, 1)
+texture = ExtResource("2_ol5yl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
