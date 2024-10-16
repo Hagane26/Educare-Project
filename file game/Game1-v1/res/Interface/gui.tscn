@@ -16,7 +16,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -589.0
+offset_bottom = -638.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -38,8 +38,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="RichTextLabel" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(600, 50)
+custom_minimum_size = Vector2(700, 30)
 layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
 bbcode_enabled = true
 text = "Jumlah"
 autowrap_mode = 1

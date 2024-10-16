@@ -6,36 +6,56 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_524fx"]
 size = Vector2(30, 30)
 
+[sub_resource type="Animation" id="Animation_tamnv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_lvt7v"]
 resource_name = "deafult"
 length = 2.0
 loop_mode = 1
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
+tracks/0/enabled = false
+tracks/0/path = NodePath("Label:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(1, -8), Vector2(1, -16)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
-
-[sub_resource type="Animation" id="Animation_tamnv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, -16)]
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(-15, 0, 0, 0, 0, -5, 0, 0, 0, 0, -15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.0333333, 1, 2)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mg2w3"]
@@ -62,36 +82,26 @@ shape = SubResource("RectangleShape2D_524fx")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(16, 16)
 
-[node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(-1, 0)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = -16.0
-offset_right = 31.0
-offset_bottom = 14.0
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="."]
 z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_direction = 1
+offset_left = -51.0
+offset_top = -14.6279
+offset_right = 221.0
+offset_bottom = 13.3721
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "A"
+theme_override_font_sizes/font_size = 20
+text = "Lorem ipsum "
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+justification_flags = 160
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mg2w3")
 }
 autoplay = "deafult"
-speed_scale = 0.25

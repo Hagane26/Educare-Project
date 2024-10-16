@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @onready var ray = $RayCast2D
-@onready var label = $Control/Label
+@onready var label = $Label
 @export var value = ""
 @export var can_move = true
-var animation_speed = 2
+var animation_speed = 0.35
 var moving = false
 var tile_size = 32
 
@@ -31,12 +31,8 @@ func move(dir):
 	
 func animate_move(dir):
 	var tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", position + inputs[dir] * tile_size, animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false
 	
-
-
-func _on_target_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
