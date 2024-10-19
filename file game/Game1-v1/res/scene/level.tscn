@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bo0j4n0k7pidb" path="res://res/scene/level/level3.tscn" id="5_d0slm"]
 [ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/level4.tscn" id="6_pbcdx"]
 [ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_8ch00"]
-[ext_resource type="Script" path="res://res/Interface/menu.gd" id="8_wavru"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_wavru"]
 [ext_resource type="PackedScene" uid="uid://dmd8w0nphp5yy" path="res://res/Interface/level_tscn.tscn" id="9_0oiqp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnsqx"]

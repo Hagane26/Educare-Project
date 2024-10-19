@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://drddh05fjfyf6"]
+
+[ext_resource type="Script" path="res://res/script/volumeslider.gd" id="1_h2c6p"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="2_jdrr2"]
+[ext_resource type="PackedScene" uid="uid://cijlkpgc3et6k" path="res://res/Interface/main_menu.tscn" id="3_xceet"]
+
+[sub_resource type="GDScript" id="GDScript_sfuev"]
+script/source = "extends CheckButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -150.0
+offset_right = 350.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="Master" type="HSlider" parent="GridContainer"]
+custom_minimum_size = Vector2(350, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.005
+scrollable = false
+script = ExtResource("1_h2c6p")
+
+[node name="Label2" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="Music" type="HSlider" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.005
+scrollable = false
+script = ExtResource("1_h2c6p")
+bus = "Music"
+
+[node name="Label3" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Sfx"
+
+[node name="Sfx" type="HSlider" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+scrollable = false
+script = ExtResource("1_h2c6p")
+bus = "Sfx"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Full screen"
+
+[node name="Fullscreen" type="CheckButton" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+script = SubResource("GDScript_sfuev")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 574.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 448.0
+offset_right = 589.0
+offset_bottom = 479.0
+text = "Back"
+script = ExtResource("2_jdrr2")
+next_scene = ExtResource("3_xceet")
+
+[connection signal="value_changed" from="GridContainer/Master" to="GridContainer/Master" method="_on_value_changed"]
+[connection signal="value_changed" from="GridContainer/Music" to="GridContainer/Music" method="_on_value_changed"]
+[connection signal="value_changed" from="GridContainer/Sfx" to="GridContainer/Sfx" method="_on_value_changed"]
+[connection signal="toggled" from="GridContainer/Fullscreen" to="GridContainer/Fullscreen" method="_on_toggled"]

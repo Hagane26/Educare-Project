@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmd8w0nphp5yy"]
 
-[ext_resource type="Script" path="res://res/Interface/menu.gd" id="1_w8yg3"]
-[ext_resource type="PackedScene" uid="uid://brrap5blhv8e1" path="res://res/scene/level.tscn" id="2_asklc"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="1_w8yg3"]
+[ext_resource type="PackedScene" uid="uid://brrap5blhv8e1" path="res://res/scene/level.tscn" id="2_cglql"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -40,7 +40,5 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "level1
-"
+text = "level1"
 script = ExtResource("1_w8yg3")
-next_scene = ExtResource("2_asklc")

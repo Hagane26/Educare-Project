@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://pqgq5ybv7x4j"]
+
+[sub_resource type="GDScript" id="GDScript_2yw66"]
+script/source = "extends Node
+var n :int = 4
+var sfx_slot :Array[AudioStreamPlayer] = []
+var sfx_qeue :Array = []
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for i in range(n):
+		var sfxplayer = AudioStreamPlayer.new()
+		$Sfx.add_child(sfxplayer)
+		sfx_slot.append(sfxplayer)
+		sfxplayer.finished.connect(_on_stream_finished.bind(sfxplayer))
+		
+		
+func _on_stream_finished(stream) -> void:
+	sfx_slot.append(stream)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if sfx_qeue.is_empty() and not sfx_slot.is_empty():
+		sfx_slot[0] = sfx_qeue.pop_front()
+		sfx_slot[0].play()
+		sfx_slot.pop_front()
+		
+
+
+func play_sfx(file):
+	sfx_qeue.append(file)
+func play_music(file):
+	if $Music/Player.stream == file:
+		$Music/Player.stream = file
+		$Music/Player.play()
+"
+
+[node name="Musicplayer" type="Node"]
+script = SubResource("GDScript_2yw66")
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Player" type="AudioStreamPlayer" parent="Music"]

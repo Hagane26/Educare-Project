@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cijlkpgc3et6k"]
 
-[ext_resource type="Script" path="res://res/Interface/menu.gd" id="1_q1wuv"]
-[ext_resource type="PackedScene" uid="uid://dmd8w0nphp5yy" path="res://res/Interface/level_tscn.tscn" id="2_8ttax"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="1_q1wuv"]
+[ext_resource type="PackedScene" uid="uid://dmd8w0nphp5yy" path="res://res/Interface/level_tscn.tscn" id="2_8p7ol"]
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -36,7 +36,7 @@ grow_vertical = 0
 layout_mode = 2
 text = "Play!"
 script = ExtResource("1_q1wuv")
-next_scene = ExtResource("2_8ttax")
+next_scene = ExtResource("2_8p7ol")
 
 [node name="Button2" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
