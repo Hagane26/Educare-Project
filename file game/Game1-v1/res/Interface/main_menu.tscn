@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cijlkpgc3et6k"]
+[gd_scene load_steps=5 format=3 uid="uid://cijlkpgc3et6k"]
 
 [ext_resource type="Script" path="res://res/script/MMbtn.gd" id="1_q1wuv"]
 [ext_resource type="PackedScene" uid="uid://dmd8w0nphp5yy" path="res://res/Interface/level_tscn.tscn" id="2_8p7ol"]
+[ext_resource type="PackedScene" uid="uid://drddh05fjfyf6" path="res://res/Interface/Settings.tscn" id="3_qe0va"]
+
+[sub_resource type="GDScript" id="GDScript_e8bj2"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	audioplayer.play_music(\"res://assets/Summer is here.ogg\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -10,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_e8bj2")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -41,6 +57,8 @@ next_scene = ExtResource("2_8p7ol")
 [node name="Button2" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "setting"
+script = ExtResource("1_q1wuv")
+next_scene = ExtResource("3_qe0va")
 
 [node name="Button3" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2

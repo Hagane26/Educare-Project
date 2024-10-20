@@ -27,7 +27,7 @@ func initialize_text(texts:String,box_counts:int,targets):
 	for target in targets.get_children():
 		target.box_correct.connect(_on_target_box_correct)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	tx2.text = text.format(boxes)
 	pass
 

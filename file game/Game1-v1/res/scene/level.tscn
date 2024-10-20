@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brrap5blhv8e1"]
+[gd_scene load_steps=15 format=3 uid="uid://brrap5blhv8e1"]
 
 [ext_resource type="Script" path="res://res/script/level.gd" id="1_pnqkn"]
 [ext_resource type="PackedScene" uid="uid://dvf2yg451x3b3" path="res://res/scene/level/level0.tscn" id="2_cnfi0"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/level4.tscn" id="6_pbcdx"]
 [ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_8ch00"]
 [ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_wavru"]
-[ext_resource type="PackedScene" uid="uid://dmd8w0nphp5yy" path="res://res/Interface/level_tscn.tscn" id="9_0oiqp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnsqx"]
 bg_color = Color(0, 0, 0, 1)
@@ -143,7 +142,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Select Level"
 script = ExtResource("8_wavru")
-next_scene = ExtResource("9_0oiqp")
 
 [node name="resume" type="Button" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2
@@ -214,7 +212,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Return"
 script = ExtResource("8_wavru")
-next_scene = ExtResource("9_0oiqp")
 
 [node name="HSeparator2" type="HSeparator" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2

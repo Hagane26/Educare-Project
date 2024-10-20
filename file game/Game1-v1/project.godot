@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-audioplayer="res://res/scene/musicplayer.tscn"
+audioplayer="*res://res/scene/musicplayer.tscn"
 
 [display]
 
