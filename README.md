@@ -88,3 +88,5 @@ this project for train student.
 ┃ ┣ 📜final proposal?.pdf</br>
 ┃ ┗ 📜RANCANG BANGUN GAME EDUKASI PUZZLE SUPLEMENTARI DENGAN ALGORITMA XXX PADA SISWA SEKOLAH MENENGAH PERTAMA.odt</br>
 ┗ 📜README.md</br>
+
+<h1> Selesai </h1>
