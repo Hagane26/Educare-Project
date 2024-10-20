@@ -11,7 +11,7 @@ var text = ""
 @onready var tx3 = $Control/GUI/Panel/HBoxContainer/Label3
 @export var max_level = 5
 @onready var lbwin =$"Control/finished menu/Panel/Panel/VBoxContainer/Label2"
-var curr_level = 4
+var curr_level = 0
 var boxes = {}
 var correct_count = []
 var box = 0
@@ -46,7 +46,7 @@ func advance_level():
 	var current_child = lvlmgr.get_child(0)
 	if current_child:
 		curr_level += 1	
-		if curr_level >= len(levels)-1:
+		if curr_level >= len(levels):
 			finish_game()
 			return
 		$AnimationPlayer.play("transition_out")
@@ -101,3 +101,8 @@ func _on_reset_pressed() -> void:
 	$Control/pause_menu.visible = false
 	reset_level()
 	
+
+
+func _on_select_level_pressed() -> void:
+	get_tree().change_scene_to_packed(load("res://res/Interface/level_tscn.tscn"))
+	pass # Replace with function body.
