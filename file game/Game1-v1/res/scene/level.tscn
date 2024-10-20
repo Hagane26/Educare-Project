@@ -211,7 +211,6 @@ text = "Reset Game"
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Return"
-script = ExtResource("8_wavru")
 
 [node name="HSeparator2" type="HSeparator" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2
@@ -228,5 +227,6 @@ libraries = {
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/Select level" to="." method="_on_select_level_pressed"]
 
 [editable path="Control/GUI"]

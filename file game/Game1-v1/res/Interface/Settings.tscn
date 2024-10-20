@@ -1,8 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://drddh05fjfyf6"]
+[gd_scene load_steps=4 format=3 uid="uid://drddh05fjfyf6"]
 
 [ext_resource type="Script" path="res://res/script/volumeslider.gd" id="1_h2c6p"]
-[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="2_jdrr2"]
-[ext_resource type="PackedScene" uid="uid://cijlkpgc3et6k" path="res://res/Interface/main_menu.tscn" id="3_xceet"]
+
+[sub_resource type="GDScript" id="GDScript_fucjt"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_packed(load(\"res://res/Interface/main_menu.tscn\"))
+"
 
 [sub_resource type="GDScript" id="GDScript_sfuev"]
 script/source = "extends CheckButton
@@ -34,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = SubResource("GDScript_fucjt")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -120,17 +137,16 @@ offset_bottom = 151.0
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="Button" type="Button" parent="."]
+[node name="back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 544.0
 offset_top = 448.0
 offset_right = 589.0
 offset_bottom = 479.0
 text = "Back"
-script = ExtResource("2_jdrr2")
-next_scene = ExtResource("3_xceet")
 
 [connection signal="value_changed" from="GridContainer/Master" to="GridContainer/Master" method="_on_value_changed"]
 [connection signal="value_changed" from="GridContainer/Music" to="GridContainer/Music" method="_on_value_changed"]
 [connection signal="value_changed" from="GridContainer/Sfx" to="GridContainer/Sfx" method="_on_value_changed"]
 [connection signal="toggled" from="GridContainer/Fullscreen" to="GridContainer/Fullscreen" method="_on_toggled"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
