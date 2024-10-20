@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://res/script/volumeslider.gd" id="1_h2c6p"]
 [ext_resource type="Script" path="res://res/script/MMbtn.gd" id="2_jdrr2"]
-[ext_resource type="PackedScene" uid="uid://cijlkpgc3et6k" path="res://res/Interface/main_menu.tscn" id="3_xceet"]
+[ext_resource type="PackedScene" uid="uid://cijlkpgc3et6k" path="res://res/Interface/main_menu.tscn" id="3_fkt8m"]
 
 [sub_resource type="GDScript" id="GDScript_sfuev"]
 script/source = "extends CheckButton
@@ -128,7 +128,7 @@ offset_right = 589.0
 offset_bottom = 479.0
 text = "Back"
 script = ExtResource("2_jdrr2")
-next_scene = ExtResource("3_xceet")
+next_scene = ExtResource("3_fkt8m")
 
 [connection signal="value_changed" from="GridContainer/Master" to="GridContainer/Master" method="_on_value_changed"]
 [connection signal="value_changed" from="GridContainer/Music" to="GridContainer/Music" method="_on_value_changed"]
