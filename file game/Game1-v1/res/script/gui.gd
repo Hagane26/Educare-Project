@@ -40,8 +40,8 @@ func _on_timer_timeout() -> void:
 	tx.text = "Your Time %02d:%02d" % [sec/60, sec%60] 
 	pass # Replace with function body.
 
-func _on_target_box_correct(text,id,state) -> void:
-	boxes[id] = text
+func _on_target_box_correct(txt,id,state) -> void:
+	boxes[id] = txt
 	correct_count[id] = state
 	pass # Replace with function body.
 func _set_current_value(texts, box_counts):
