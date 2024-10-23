@@ -20,6 +20,14 @@ func _on_start_pressed() -> void:
 
 func _on_setting_pressed() -> void:
 	get_tree().change_scene_to_packed(load(\"res://res/Interface/Settings.tscn\"))
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_tentang_pressed() -> void:
+	pass # Replace with function body.
 "
 
 [node name="Main menu" type="Control"]
@@ -46,9 +54,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -142.0
-offset_bottom = 2.0
+offset_left = -260.0
+offset_top = -150.0
+offset_right = -10.0
+offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -60,11 +69,11 @@ text = "Play!"
 layout_mode = 2
 text = "setting"
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+[node name="tentang" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "about"
 
-[node name="Button4" type="Button" parent="Panel/VBoxContainer"]
+[node name="exit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "exit"
 
@@ -78,3 +87,5 @@ text = "EDUCARE PROJECT "
 
 [connection signal="pressed" from="Panel/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/tentang" to="." method="_on_tentang_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/exit" to="." method="_on_exit_pressed"]

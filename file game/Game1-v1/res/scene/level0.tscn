@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://brrap5blhv8e1"]
+[gd_scene load_steps=15 format=3 uid="uid://nvbtsitsh3hk"]
 
-[ext_resource type="Script" path="res://res/script/level.gd" id="1_pnqkn"]
-[ext_resource type="PackedScene" uid="uid://dvf2yg451x3b3" path="res://res/scene/level/puzzle0.tscn" id="2_cnfi0"]
-[ext_resource type="PackedScene" uid="uid://qxyvkpk8yeyn" path="res://res/scene/level/puzzle1.tscn" id="3_ssolx"]
-[ext_resource type="PackedScene" uid="uid://b7qdyn8fxevxf" path="res://res/scene/level/puzzle2.tscn" id="4_crqa7"]
-[ext_resource type="PackedScene" uid="uid://bo0j4n0k7pidb" path="res://res/scene/level/puzzle3.tscn" id="5_d0slm"]
-[ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/puzzle4.tscn" id="6_pbcdx"]
-[ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_8ch00"]
-[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_wavru"]
+[ext_resource type="Script" path="res://res/script/level.gd" id="1_bfacb"]
+[ext_resource type="PackedScene" uid="uid://qxyvkpk8yeyn" path="res://res/scene/level/puzzle1.tscn" id="2_o230s"]
+[ext_resource type="PackedScene" uid="uid://bo0j4n0k7pidb" path="res://res/scene/level/puzzle3.tscn" id="3_a28wx"]
+[ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/puzzle4.tscn" id="4_hnipx"]
+[ext_resource type="PackedScene" uid="uid://b7qdyn8fxevxf" path="res://res/scene/level/puzzle2.tscn" id="5_pvoin"]
+[ext_resource type="PackedScene" uid="uid://dvf2yg451x3b3" path="res://res/scene/level/puzzle0.tscn" id="6_4lguh"]
+[ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_msfln"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_6bag7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnsqx"]
 bg_color = Color(0, 0, 0, 1)
@@ -71,8 +71,8 @@ _data = {
 
 [node name="level" type="Node"]
 process_mode = 3
-script = ExtResource("1_pnqkn")
-levels = Array[PackedScene]([ExtResource("3_ssolx"), ExtResource("5_d0slm"), ExtResource("6_pbcdx"), ExtResource("4_crqa7"), ExtResource("2_cnfi0")])
+script = ExtResource("1_bfacb")
+levels = Array[PackedScene]([ExtResource("2_o230s"), ExtResource("3_a28wx"), ExtResource("4_hnipx"), ExtResource("5_pvoin"), ExtResource("6_4lguh")])
 sec = 300
 
 [node name="Control" type="CanvasLayer" parent="."]
@@ -83,7 +83,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnsqx")
 
-[node name="GUI" parent="Control" instance=ExtResource("7_8ch00")]
+[node name="GUI" parent="Control" instance=ExtResource("7_msfln")]
 process_mode = 1
 offset_top = -1.0
 offset_bottom = -16.0
@@ -149,7 +149,7 @@ text = "Reset"
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Select Level"
-script = ExtResource("8_wavru")
+script = ExtResource("8_6bag7")
 
 [node name="resume" type="Button" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2

@@ -26,6 +26,8 @@ func _ready() -> void:
 	print(len(levels))
 	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept") and not get_tree().paused:
+		reset_level()
 	tx2.text = text.format(boxes)
 	sec = sec-delta
 	if !get_tree().paused:
@@ -43,19 +45,23 @@ func reset_level():
 	
 	
 func advance_level():
+	
 	var current_child = lvlmgr.get_child(0)
+	
+	get_tree().paused = true
 	if current_child:
 		curr_level += 1	
 		if curr_level >= len(levels):
 			finish_game()
 			return
+		
+		await get_tree().create_timer(1.0).timeout
 		$AnimationPlayer.play("transition_out")
 		await $AnimationPlayer.animation_finished
 		lvlmgr.remove_child(current_child)
 		current_child.queue_free()
 	lvlmgr.add_child(levels[curr_level].instantiate())
 	initialize_text(lvlmgr.get_child(0).text,lvlmgr.get_child(0).box_count,lvlmgr.get_child(0).get_node("TargetHandler"))
-	get_tree().paused = true
 	$AnimationPlayer.play("transition_in")
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = false

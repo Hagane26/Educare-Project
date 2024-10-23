@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Game1-v1"
+run/main_scene="res://res/Interface/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

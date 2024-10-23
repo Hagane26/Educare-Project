@@ -67,9 +67,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
+offset_left = -305.0
 offset_top = -150.0
-offset_right = 350.0
+offset_right = 305.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -126,23 +126,24 @@ text = "Full screen"
 [node name="Fullscreen" type="CheckButton" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+icon_alignment = 1
 script = SubResource("GDScript_sfuev")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 512.0
+offset_left = 580.0
 offset_top = 128.0
-offset_right = 574.0
-offset_bottom = 151.0
+offset_right = 700.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 544.0
+offset_left = 610.0
 offset_top = 448.0
-offset_right = 589.0
-offset_bottom = 479.0
+offset_right = 670.0
+offset_bottom = 483.0
 text = "Back"
 
 [connection signal="value_changed" from="GridContainer/Master" to="GridContainer/Master" method="_on_value_changed"]
