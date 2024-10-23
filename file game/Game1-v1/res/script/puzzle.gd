@@ -11,3 +11,7 @@ signal puzzle_initialized(texts, box_counts)
 func _ready() -> void:
 	# when is loaded send singal to initialize the level
 	puzzle_initialized.emit(text, box_count)
+	
+func  _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		get_node("../..")
