@@ -3,11 +3,15 @@
 [sub_resource type="GDScript" id="GDScript_aqvgu"]
 script/source = "extends Control
 
-
+var LvLbtm = preload(\"res://res/Interface/level_button.tscn\")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	for level in lvldata.leveldata.get_sections():
+		var levelbutton = LvLbtm.instantiate()
+		levelbutton.level = level
+		levelbutton.unlock = lvldata.leveldata.get_value(level,\"unlock\")
+		levelbutton.time = lvldata.leveldata.get_value(level,\"time\")
+		$Panel/VBoxContainer.add_child(levelbutton)
 
 
 
@@ -49,11 +53,6 @@ grow_vertical = 0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Select Level"
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "level1"
-
-[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

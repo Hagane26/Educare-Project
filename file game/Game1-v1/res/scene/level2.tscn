@@ -73,6 +73,7 @@ _data = {
 process_mode = 3
 script = ExtResource("1_daae0")
 levels = Array[PackedScene]([ExtResource("2_d4tgg"), ExtResource("3_7fwt1"), ExtResource("4_rxdls"), ExtResource("5_w3pc1"), ExtResource("6_1syo7")])
+level = "2"
 sec = 300
 
 [node name="Control" type="CanvasLayer" parent="."]

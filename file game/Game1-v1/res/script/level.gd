@@ -1,6 +1,7 @@
 extends Node
 @export var levels :Array[PackedScene] = []
 @export var box_count = 1
+@export var level = "0"
 @export var sec = 0
 var text = ""
 @onready var gui = $Control/GUI
@@ -54,8 +55,6 @@ func advance_level():
 		if curr_level >= len(levels):
 			finish_game()
 			return
-		
-		await get_tree().create_timer(1.0).timeout
 		$AnimationPlayer.play("transition_out")
 		await $AnimationPlayer.animation_finished
 		lvlmgr.remove_child(current_child)
@@ -74,7 +73,7 @@ func initialize_text(texts:String,box_counts:int,targets):
 	box_count = box_counts
 	correct_count = []
 	for i in range(box_count):
-		boxes[i] = "_______"
+		boxes[i] = "[u][____%s____][/u]" %(i+1)
 		correct_count.append(false)
 	for target in targets.get_children():
 		target.box_correct.connect(_on_target_box_correct)
@@ -82,6 +81,7 @@ func initialize_text(texts:String,box_counts:int,targets):
 func finish_game() -> void:
 	get_tree().paused = true
 	$"Control/finished menu".visible = true
+	lvldata.update_level(sec,level)
 	lbwin.text ="You finished the level with %02d:%02d left!" % [(sec)/60, fmod((sec),60)]
 
 func _on_target_box_correct(new_text,id,state) -> void:
@@ -89,6 +89,7 @@ func _on_target_box_correct(new_text,id,state) -> void:
 	correct_count[id] = state
 	print(correct_count)
 	if correct_count.count(true) == len(correct_count):
+		await get_tree().create_timer(1.0).timeout
 		get_tree().paused = true
 		advance_level()
 	pass
@@ -107,8 +108,6 @@ func _on_reset_pressed() -> void:
 	$Control/pause_menu.visible = false
 	reset_level()
 	
-
-
 func _on_select_level_pressed() -> void:
 	get_tree().change_scene_to_packed(load("res://res/Interface/level_tscn.tscn"))
 	pass # Replace with function body.

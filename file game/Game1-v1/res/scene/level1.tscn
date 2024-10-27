@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://dmk41xt7a8mfe"]
 
 [ext_resource type="Script" path="res://res/script/level.gd" id="1_67cgl"]
-[ext_resource type="PackedScene" uid="uid://qxyvkpk8yeyn" path="res://res/scene/level/puzzle1.tscn" id="2_6onp6"]
-[ext_resource type="PackedScene" uid="uid://bo0j4n0k7pidb" path="res://res/scene/level/puzzle3.tscn" id="3_633de"]
-[ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/puzzle4.tscn" id="4_yj27g"]
-[ext_resource type="PackedScene" uid="uid://b7qdyn8fxevxf" path="res://res/scene/level/puzzle2.tscn" id="5_06ubf"]
-[ext_resource type="PackedScene" uid="uid://dvf2yg451x3b3" path="res://res/scene/level/puzzle0.tscn" id="6_l62sq"]
+[ext_resource type="PackedScene" uid="uid://4ofcb5nn2ava" path="res://res/scene/level/puzzle5.tscn" id="2_7tgln"]
+[ext_resource type="PackedScene" uid="uid://bu4jc8rnm8dlf" path="res://res/scene/level/puzzle6.tscn" id="3_7p2ob"]
+[ext_resource type="PackedScene" uid="uid://c003crjc2mgyg" path="res://res/scene/level/puzzle7.tscn" id="4_6e8n4"]
+[ext_resource type="PackedScene" uid="uid://dk5leaw70lic3" path="res://res/scene/level/puzzle8.tscn" id="5_8km3l"]
+[ext_resource type="PackedScene" uid="uid://dnj5d7t58uaxa" path="res://res/scene/level/puzzle9.tscn" id="6_3e8wl"]
 [ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_6lepf"]
 [ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_kejdk"]
 
@@ -72,7 +72,8 @@ _data = {
 [node name="level" type="Node"]
 process_mode = 3
 script = ExtResource("1_67cgl")
-levels = Array[PackedScene]([ExtResource("2_6onp6"), ExtResource("3_633de"), ExtResource("4_yj27g"), ExtResource("5_06ubf"), ExtResource("6_l62sq")])
+levels = Array[PackedScene]([ExtResource("2_7tgln"), ExtResource("3_7p2ob"), ExtResource("4_6e8n4"), ExtResource("5_8km3l"), ExtResource("6_3e8wl")])
+level = "1"
 sec = 300
 
 [node name="Control" type="CanvasLayer" parent="."]

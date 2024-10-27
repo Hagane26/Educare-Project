@@ -1,0 +1,20 @@
+~ tutorial
+halo selamat datang di educare
+disini aku akan mengajarkan kalian bagaimana kalian bisa bermain game ini!
+=> tutorial_explain
+
+~ tutorial_explain
+sekarang jika kamu pencet tombol W, A, S dan D maka kalian bisa berjalan kearan
+gerakan kotak dengan berjalan ke arah dia!
+dan masuk kan kotak ke target yang ada!
+
+apakah kamu mengerti?
+- ya => tutorial_end
+- tidak
+  baiklah aku akan mengulangnya lagi
+  => tutorial_explain
+
+
+~ tutorial_end
+bagus dengan ini kamu akan menyelesaikan game ini dengan cepat dan mudah!
+=> END

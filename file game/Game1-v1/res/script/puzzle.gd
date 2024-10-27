@@ -1,7 +1,7 @@
 extends Node2D
 
 var boxes = {}
-@export var text = ""
+@export_multiline var text = ""
 @export var box_count = 1
 
 @export var cam_limit :Array[int] = []
