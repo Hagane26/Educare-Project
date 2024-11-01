@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cijlkpgc3et6k"]
+[gd_scene load_steps=6 format=3 uid="uid://cijlkpgc3et6k"]
+
+[ext_resource type="Texture2D" uid="uid://dem57sbqnme5n" path="res://assets/photo-1699544084159-19ab53017724.jpeg" id="1_o0s2f"]
 
 [sub_resource type="GDScript" id="GDScript_e8bj2"]
 script/source = "extends Control
@@ -21,8 +23,19 @@ func _on_exit_pressed() -> void:
 
 
 func _on_tentang_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_packed(load(\"res://res/Interface/about.tscn\"))
 "
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5gdc"]
+texture = ExtResource("1_o0s2f")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irjj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ycami"]
+font_size = 43
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -40,46 +53,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f5gdc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="Panel" type="Panel" parent="Panel"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -260.0
-offset_top = -150.0
-offset_right = -10.0
-offset_bottom = -9.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = -1
+anchor_right = 0.168
+anchor_bottom = 0.301
+offset_left = 938.0
+offset_top = -3.0
+offset_right = 1064.96
+offset_bottom = 503.28
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irjj")
 
-[node name="start" type="Button" parent="Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -69.5
+offset_right = 105.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="start" type="Button" parent="Panel/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Play!"
 
-[node name="setting" type="Button" parent="Panel/VBoxContainer"]
+[node name="setting" type="Button" parent="Panel/Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "setting"
 
-[node name="tentang" type="Button" parent="Panel/VBoxContainer"]
+[node name="tentang" type="Button" parent="Panel/Panel/VBoxContainer"]
 layout_mode = 2
 text = "about"
 
-[node name="exit" type="Button" parent="Panel/VBoxContainer"]
+[node name="exit" type="Button" parent="Panel/Panel/VBoxContainer"]
 layout_mode = 2
 text = "exit"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 77.0
-offset_right = 224.0
-offset_bottom = 100.0
-text = "EDUCARE PROJECT "
+offset_left = 1016.0
+offset_top = 192.0
+offset_right = 1216.0
+offset_bottom = 251.0
+text = "EDUCARE"
+label_settings = SubResource("LabelSettings_ycami")
 
-[connection signal="pressed" from="Panel/VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/setting" to="." method="_on_setting_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/tentang" to="." method="_on_tentang_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/Panel/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/Panel/VBoxContainer/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Panel/Panel/VBoxContainer/tentang" to="." method="_on_tentang_pressed"]
+[connection signal="pressed" from="Panel/Panel/VBoxContainer/exit" to="." method="_on_exit_pressed"]

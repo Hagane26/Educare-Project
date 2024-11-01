@@ -1,0 +1,162 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfqr71fabqj7r"]
+
+[sub_resource type="GDScript" id="GDScript_pnglw"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_return_pressed() -> void:
+	get_tree().change_scene_to_packed(load(\"res://res/Interface/main_menu.tscn\"))
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_kmdo8"]
+font_size = 24
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kykb7"]
+grow_end = 0.0
+thickness = 5
+vertical = true
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_pnglw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -53.0
+offset_right = 137.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Soal"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="VSeparator" type="VSeparator" parent="GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxLine_kykb7")
+
+[node name="Label2" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Sen Sen Hermawan"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="Label3" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Programming "
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="VSeparator2" type="VSeparator" parent="GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxLine_kykb7")
+
+[node name="Label4" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Sen Sen hermawan"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="Label5" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Level Design"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="VSeparator3" type="VSeparator" parent="GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxLine_kykb7")
+
+[node name="Label6" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Sen Sen hermawan"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="Label7" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Music"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="VSeparator4" type="VSeparator" parent="GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxLine_kykb7")
+
+[node name="Label8" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Seppel Sleepless"
+label_settings = SubResource("LabelSettings_kmdo8")
+
+[node name="return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.407
+anchor_top = 0.668
+anchor_right = 0.558
+anchor_bottom = 0.731
+offset_left = 6.03998
+offset_top = 7.03998
+offset_right = -0.240051
+offset_bottom = -1.32001
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+
+[connection signal="pressed" from="return" to="." method="_on_return_pressed"]

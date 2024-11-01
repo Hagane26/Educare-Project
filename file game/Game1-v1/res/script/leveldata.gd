@@ -1,32 +1,25 @@
 extends Node
 
-var  leveldata = ConfigFile.new()
-var defaulleveldata ={
-	0:[true,0],
-	1:[false,0],
-	2:[false,0],
-	3:[false,0],
-	4:[false,0],}
+var  levels = SaveData.new()
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	var err = leveldata.load("user://leveldata.cfg")
-	if err == 7:
-		for i in defaulleveldata:
-			leveldata.set_value(str(i),"time",defaulleveldata[i][1])
-			leveldata.set_value(str(i),"unlock",defaulleveldata[i][0])
-			leveldata.save("user://leveldata.cfg")
+	levels = levels.load()
 
-func update_level(time:int,level:String):
-	leveldata.set_value(level,"time",time)
-	leveldata.save("user://leveldata.cfg")
-	var nextlevel = str(int(level)+1)
-	if nextlevel in leveldata.get_sections():
+func get_data():
+	return levels.data
+	
+func update_level(time:int,level:int):
+	
+	if time < levels.data[level][1]:
+		levels.data[level][1] = time
+	
+	var nextlevel = level+1
+	if nextlevel < len(levels.data):
 		unlock_level(nextlevel)
+	else:
+		levels.save()
 
 func unlock_level(level):
-	leveldata.set_value(level,"unlock",true)
-	leveldata.save("user://leveldata.cfg")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	levels.data[level][0] = true
+	levels.save()

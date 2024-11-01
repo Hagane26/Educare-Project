@@ -2919,7 +2919,7 @@ sources/2 = SubResource("TileSetAtlasSource_ap5if")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_4lepg")
-text = "Fungsi utama dari sel darah {0} yaitu Membawa {1}"
+text = "Fungsi utama dari sel  {0} yaitu Membawa {1}"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
 

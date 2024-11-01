@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 audioplayer="*res://res/scene/musicplayer.tscn"
 lvldata="*res://res/script/leveldata.gd"
 CFGmanager="*res://res/script/configmanager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
 
@@ -43,7 +42,7 @@ movie_writer/movie_file="/home/nes/proyek/skripsi/video.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 
