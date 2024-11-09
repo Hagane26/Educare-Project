@@ -6,7 +6,10 @@ const SAVE_DATA := "user://savedata.tres"
 	1:[false,0],
 	2:[false,0],
 	3:[false,0],
-	4:[false,0],}
+	4:[false,0],
+	5:[false,0],
+
+	}
 func _ready():
 	ResourceSaver.save(self,SAVE_DATA)
 	
