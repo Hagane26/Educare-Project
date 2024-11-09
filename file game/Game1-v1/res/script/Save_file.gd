@@ -16,6 +16,8 @@ func save():
 func load():
 	if ResourceLoader.exists(SAVE_DATA):
 		return load(SAVE_DATA)
+	else:
+		return self
 
 	
 	

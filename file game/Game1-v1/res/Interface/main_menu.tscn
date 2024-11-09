@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cijlkpgc3et6k"]
 
-[ext_resource type="Texture2D" uid="uid://dem57sbqnme5n" path="res://assets/photo-1699544084159-19ab53017724.jpeg" id="1_o0s2f"]
+[ext_resource type="Texture2D" uid="uid://xbp5naaykxwb" path="res://assets/bg.jpg" id="1_c7aw7"]
 
 [sub_resource type="GDScript" id="GDScript_e8bj2"]
 script/source = "extends Control
@@ -27,7 +27,7 @@ func _on_tentang_pressed() -> void:
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5gdc"]
-texture = ExtResource("1_o0s2f")
+texture = ExtResource("1_c7aw7")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irjj"]
 bg_color = Color(0, 0, 0, 1)

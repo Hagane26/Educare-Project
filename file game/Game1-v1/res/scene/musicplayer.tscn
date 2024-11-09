@@ -15,19 +15,20 @@ func _ready() -> void:
 		
 		
 func _on_stream_finished(stream) -> void:
-	sfx_slot.append(load(stream))
+	sfx_slot.append(stream)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if not sfx_qeue.is_empty() and not sfx_slot.is_empty():		
-		sfx_slot[0] = sfx_qeue.pop_front()
+		sfx_slot[0].stream = sfx_qeue.pop_front()
 		sfx_slot[0].play()
 		sfx_slot.pop_front()
 		
 
 func play_sfx(file):
-	sfx_qeue.append(file)
-func play_music(file):
+	sfx_qeue.append(load(file))
+	
+func play_music(file:String):
 	if $Music/Player.stream != load(file):
 		$Music/Player.stream = load(file)
 		$Music/Player.play()

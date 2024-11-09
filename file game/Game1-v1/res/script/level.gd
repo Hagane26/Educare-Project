@@ -133,6 +133,9 @@ func _on_reset_pressed() -> void:
 	$"Control/finished menu".visible = false
 	reset_level()
 	
+func _enter_tree() -> void:
+	audioplayer.play_music("res://assets/8_bit_ice_cave_lofi.mp3")
+	
 func _on_select_level_pressed() -> void:
 	get_tree().change_scene_to_packed(load("res://res/Interface/level_tscn.tscn"))
 	pass # Replace with function body.
