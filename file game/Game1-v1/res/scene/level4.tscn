@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://coymx475dsbf4"]
 
 [ext_resource type="Script" path="res://res/script/level.gd" id="1_xwgjk"]
-[ext_resource type="PackedScene" uid="uid://qxyvkpk8yeyn" path="res://res/scene/level/puzzle1.tscn" id="2_5rh2d"]
-[ext_resource type="PackedScene" uid="uid://bo0j4n0k7pidb" path="res://res/scene/level/puzzle3.tscn" id="3_rlxf6"]
-[ext_resource type="PackedScene" uid="uid://cbndhasounmr0" path="res://res/scene/level/puzzle4.tscn" id="4_ki52i"]
-[ext_resource type="PackedScene" uid="uid://b7qdyn8fxevxf" path="res://res/scene/level/puzzle2.tscn" id="5_gakli"]
-[ext_resource type="PackedScene" uid="uid://dvf2yg451x3b3" path="res://res/scene/level/puzzle0.tscn" id="6_ixqsy"]
+[ext_resource type="PackedScene" uid="uid://8sy2venu2wc7" path="res://res/scene/level/puzzle20.tscn" id="2_4r7ju"]
+[ext_resource type="PackedScene" uid="uid://bw1s0fa2xxblf" path="res://res/scene/level/puzzle21.tscn" id="3_ln8m4"]
+[ext_resource type="PackedScene" uid="uid://dik8r6ecvo7l6" path="res://res/scene/level/puzzle22.tscn" id="4_a5twb"]
+[ext_resource type="PackedScene" uid="uid://dflo1o3onukbi" path="res://res/scene/level/puzzle23.tscn" id="5_buv2f"]
+[ext_resource type="PackedScene" uid="uid://c3rj86r04111c" path="res://res/scene/level/puzzle24.tscn" id="6_eghhg"]
 [ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="7_g517q"]
 [ext_resource type="Script" path="res://res/script/MMbtn.gd" id="8_13idj"]
 
@@ -72,9 +72,9 @@ _data = {
 [node name="level" type="Node"]
 process_mode = 3
 script = ExtResource("1_xwgjk")
-levels = Array[PackedScene]([ExtResource("2_5rh2d"), ExtResource("3_rlxf6"), ExtResource("4_ki52i"), ExtResource("5_gakli"), ExtResource("6_ixqsy")])
+levels = Array[PackedScene]([ExtResource("2_4r7ju"), ExtResource("3_ln8m4"), ExtResource("4_a5twb"), ExtResource("5_buv2f"), ExtResource("6_eghhg")])
 level = 4
-default_sec = 240
+default_sec = 480
 
 [node name="Control" type="CanvasLayer" parent="."]
 
@@ -89,9 +89,6 @@ process_mode = 1
 offset_top = -1.0
 offset_bottom = -16.0
 script = null
-
-[node name="Label" parent="Control/GUI/Panel/HBoxContainer" index="0"]
-custom_minimum_size = Vector2(175, 50)
 
 [node name="Label2" parent="Control/GUI/Panel/HBoxContainer" index="1"]
 custom_minimum_size = Vector2(775, 16)
@@ -211,10 +208,48 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Try again"
 
+[node name="next" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Next level"
+
 [node name="Select level" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Return"
+
+[node name="fact" type="Control" parent="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p" type="Panel" parent="Control/fact"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1040.0
+offset_bottom = 585.0
+
+[node name="text" type="RichTextLabel" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
+bbcode_enabled = true
+
+[node name="adv" type="Button" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 377.0
+offset_right = 528.0
+offset_bottom = 441.0
+text = "Next"
 
 [node name="Lvlmgr" type="Node" parent="."]
 
@@ -223,10 +258,10 @@ libraries = {
 "": SubResource("AnimationLibrary_5rmyc")
 }
 
-[connection signal="pressed" from="Control/GUI/Panel/HBoxContainer/Button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/Select level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Control/fact/p/adv" to="." method="_on_adv_pressed"]
 
 [editable path="Control/GUI"]

@@ -60,9 +60,13 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_flc2t")
-text = "komponen {0} menghabat arus listrik hanya dengan {} arah"
+text = "komponen {0} menghabat arus listrik hanya  {1} arah"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "
+Dioda adalah komponen elektronik yang memungkinkan arus listrik mengalir hanya dalam satu arah, yaitu arah maju (forward direction), dan menghambat arus dalam arah sebaliknya (reverse direction). Dioda sering digunakan dalam berbagai aplikasi, termasuk dalam pengalihan arus, penyearah sinyal, perlindungan sirkuit, dan deteksi sinyal.
+
+"
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -100,9 +104,9 @@ position = Vector2(224, 128)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("6_h4qpu")]
 position = Vector2(352, 128)
-target = Array[String](["LED"])
+target = Array[String](["Dioda"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("6_h4qpu")]
 position = Vector2(96, 128)
 id = 1
-target = Array[String](["Dua"])
+target = Array[String](["Satu"])

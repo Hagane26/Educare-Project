@@ -60,10 +60,10 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_q2oof")
-text = "
-{0}{1} dan {2} adalah zat bersifat basa"
+text = "{0}{1} dan {2} adalah zat bersifat basa"
 box_count = 3
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "Zat basa (atau alkali) adalah senyawa kimia yang, dalam larutan berair, menghasilkan ion hidroksida (OH⁻). Basa memiliki sifat kebalikan dari asam. Ketika basa larut dalam air, mereka akan meningkatkan konsentrasi ion OH⁻ dan menurunkan konsentrasi ion hidrogen (H⁺) atau ion hidronium (H₃O⁺), sehingga menaikkan pH larutan di atas 7, menjadikannya lebih bersifat basa."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -105,14 +105,14 @@ position = Vector2(128, 96)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("6_mygoa")]
 position = Vector2(224, 96)
-target = Array[String](["Sabun", "Soda Kue", "Detergen"])
+target = Array[String](["Sabun", "Soda Kue", "Deterjen"])
 
 [node name="Target3" parent="TargetHandler" instance=ExtResource("6_mygoa")]
 position = Vector2(288, 96)
 id = 2
-target = Array[String](["Sabun", "Soda Kue", "Detergen"])
+target = Array[String](["Sabun", "Soda Kue", "Deterjen"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("6_mygoa")]
 position = Vector2(256, 160)
 id = 1
-target = Array[String](["Sabun", "Soda Kue", "Detergen"])
+target = Array[String](["Sabun", "Soda Kue", "Deterjen"])

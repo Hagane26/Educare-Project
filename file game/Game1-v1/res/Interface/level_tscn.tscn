@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmd8w0nphp5yy"]
+[gd_scene load_steps=9 format=3 uid="uid://dmd8w0nphp5yy"]
 
 [ext_resource type="Texture2D" uid="uid://xbp5naaykxwb" path="res://assets/bg.jpg" id="1_nh2s0"]
+[ext_resource type="PackedScene" uid="uid://dfqo0m8bnf6mq" path="res://res/Interface/leaderboard.tscn" id="2_24xvp"]
 
 [sub_resource type="GDScript" id="GDScript_aqvgu"]
 script/source = "extends Control
@@ -13,7 +14,14 @@ func _ready() -> void:
 		levelbutton.level = level
 		levelbutton.unlock = lvldata.levels.data[level][0]
 		levelbutton.time = lvldata.levels.data[level][1]
+		levelbutton.connect(\"show_leaderboard\",show_leaderboard)
 		$Panel/VBoxContainer/Panel/V.add_child(levelbutton)
+
+func  show_leaderboard(lvl):
+	if $leaderboard.visible == false:
+		$leaderboard.set_leaderboard(lvldata.get_leaderboard(lvl))
+		$leaderboard.visible = true
+
 func _enter_tree() -> void:
 	audioplayer.play_music(\"res://assets/Summer is here.ogg\")
 
@@ -50,6 +58,15 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g76kg"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -75,9 +92,9 @@ anchor_left = 0.109
 anchor_top = 0.096
 anchor_right = 0.891
 anchor_bottom = 0.908
-offset_left = 0.479996
+offset_left = 35.48
 offset_top = -0.120003
-offset_right = -0.47998
+offset_right = -35.48
 offset_bottom = 0.23999
 grow_horizontal = 0
 grow_vertical = 0
@@ -102,7 +119,7 @@ anchor_right = 0.981
 anchor_bottom = 0.967
 offset_left = 15.0
 offset_top = 14.0
-offset_right = 6.99994
+offset_right = 2.66998
 offset_bottom = -35.873
 grow_horizontal = 2
 grow_vertical = 2
@@ -117,5 +134,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_72mu2")
 text = "Return"
+
+[node name="leaderboard" parent="." instance=ExtResource("2_24xvp")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 340.0
+offset_top = 200.0
+offset_right = 940.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g76kg")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Panel/Button" to="." method="_on_button_pressed"]

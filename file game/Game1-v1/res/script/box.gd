@@ -9,10 +9,10 @@ var moving = false
 var tile_size = 32
 
 
-var inputs = {"ui_right": Vector2.RIGHT,
-			"ui_left": Vector2.LEFT,
-			"ui_up": Vector2.UP,
-			"ui_down": Vector2.DOWN}
+var inputs = {"g_right": Vector2.RIGHT,
+			"g_left": Vector2.LEFT,
+			"g_up": Vector2.UP,
+			"g_down": Vector2.DOWN}
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)

@@ -7,14 +7,13 @@ extends CharacterBody2D
 @export var size_x = 0
 @export var size_y = 0
 
-var delta_sensor = 20
 var animation_speed = 0.35 #second
 var moving = false
 var tile_size = 32
-var inputs = {"ui_right": [Vector2.RIGHT,"walk right"],
-			"ui_left": [Vector2.LEFT,"walk left"],
-			"ui_up": [Vector2.UP,"walk up"],
-			"ui_down": [Vector2.DOWN,"walk down"]}
+var inputs = {"g_right": [Vector2.RIGHT,"walk right"],
+			"g_left": [Vector2.LEFT,"walk left"],
+			"g_up": [Vector2.UP,"walk up"],
+			"g_down": [Vector2.DOWN,"walk down"]}
 var direction
 var last_direction
 var box_status = false
@@ -25,7 +24,6 @@ func _ready():
 	position += Vector2.ONE * tile_size/2
 
 func _unhandled_input(event):
-	last_direction = direction
 	if moving:
 		return
 	for dir in inputs.keys():

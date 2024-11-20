@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://wu3murpx350w"]
+
+[ext_resource type="Texture2D" uid="uid://c0mvlat2o3b3m" path="res://assets/ui/tile_0086.png" id="1_k1ut4"]
+[ext_resource type="Texture2D" uid="uid://be0ga7gnym5em" path="res://assets/ui/tile_0120.png" id="2_k2wn2"]
+[ext_resource type="Texture2D" uid="uid://osskwxl6t3xh" path="res://assets/ui/tile_0121.png" id="3_i68fp"]
+[ext_resource type="Texture2D" uid="uid://c0eyyaepnanf7" path="res://assets/ui/tile_0122.png" id="4_3eln4"]
+[ext_resource type="Texture2D" uid="uid://c657t6fwec88" path="res://assets/ui/tile_0088.png" id="5_sjdqd"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1072.0
+offset_top = 448.0
+offset_right = 1264.0
+offset_bottom = 704.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 240.0
+columns = 2
+
+[node name="Tile0086" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_k1ut4")
+
+[node name="Label3" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "gerak atas"
+
+[node name="Tile0120" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_k2wn2")
+
+[node name="Label" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "gerak kiri"
+
+[node name="Tile0121" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_i68fp")
+
+[node name="Label4" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "gerak bawah"
+
+[node name="Tile0122" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_3eln4")
+
+[node name="Label2" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "gerak kanan"
+
+[node name="Tile0088" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_sjdqd")
+
+[node name="Label5" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "Reset level"

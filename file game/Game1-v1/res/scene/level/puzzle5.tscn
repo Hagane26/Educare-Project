@@ -60,9 +60,11 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_nfnit")
-text = "Zat {0} yang menyebabkan timbulnya {1} pada darah "
+text = "{0} dan {1}  adalah hormon  yang mengatur siklus menstruasi?"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "
+Menstruasi adalah proses fisiologis yang terjadi pada perempuan sebagai bagian dari siklus reproduksi. Menstruasi terjadi ketika lapisan dalam rahim (endometrium) yang menebal untuk mempersiapkan kemungkinan kehamilan, luruh dan keluar melalui vagina karena tidak ada pembuahan yang terjadi. Proses ini umumnya terjadi setiap bulan pada perempuan usia subur, mulai dari usia sekitar 9–16 tahun dan berakhir pada usia sekitar 45–55 tahun, ketika menopause dimulai."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -75,15 +77,15 @@ tile_set = ExtResource("6_qg05o")
 
 [node name="Box" parent="." instance=ExtResource("7_2eoik")]
 position = Vector2(416, 96)
-value = "merah"
+value = "Progesteron"
 
 [node name="Box2" parent="." instance=ExtResource("7_2eoik")]
 position = Vector2(256, 192)
-value = "Hemogoblin"
+value = "Estrogen"
 
 [node name="Box3" parent="." instance=ExtResource("7_2eoik")]
 position = Vector2(416, 32)
-value = "putih"
+value = "Testosteron"
 
 [node name="player" parent="." instance=ExtResource("8_4uly8")]
 position = Vector2(288, 64)
@@ -92,9 +94,9 @@ position = Vector2(288, 64)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("9_ibgxa")]
 position = Vector2(544, 32)
-target = Array[String](["Hemogoblin"])
+target = Array[String](["Estrogen"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("9_ibgxa")]
 position = Vector2(512, 224)
 id = 1
-target = Array[String](["merah"])
+target = Array[String](["Progesteron"])

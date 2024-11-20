@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm45bkc1xply5"]
+
+[ext_resource type="Texture2D" uid="uid://ke4eh6loy7ox" path="res://assets/ui/flatDark02.png" id="1_2kc5i"]
+[ext_resource type="Texture2D" uid="uid://ub67cf51rxl3" path="res://assets/ui/flatDark04.png" id="2_d1p5k"]
+[ext_resource type="Texture2D" uid="uid://crau852hewl8" path="res://assets/ui/flatDark05.png" id="3_u2ooe"]
+[ext_resource type="Texture2D" uid="uid://5qgt37rk0aoa" path="res://assets/ui/flatDark09.png" id="4_egmce"]
+[ext_resource type="Texture2D" uid="uid://c3h5qtyklgfjp" path="res://assets/ui/flatDark44.png" id="5_s6v66"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(192, 432)
+scale = Vector2(1.57377, 1.68421)
+texture_normal = ExtResource("1_2kc5i")
+action = "ui_up"
+visibility_mode = 1
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(112, 512)
+scale = Vector2(1.68421, 1.57377)
+texture_normal = ExtResource("2_d1p5k")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(240, 512)
+scale = Vector2(1.70667, 1.57377)
+texture_normal = ExtResource("3_u2ooe")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="bottom" type="TouchScreenButton" parent="."]
+position = Vector2(192, 560)
+scale = Vector2(1.57377, 1.70667)
+texture_normal = ExtResource("4_egmce")
+action = "ui_bottom"
+visibility_mode = 1
+
+[node name="reset" type="TouchScreenButton" parent="."]
+position = Vector2(176, 192)
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("5_s6v66")
+action = "ui_bottom"
+visibility_mode = 1

@@ -1,0 +1,266 @@
+[gd_scene load_steps=14 format=3 uid="uid://kqi8bpasrwxo"]
+
+[ext_resource type="Script" path="res://res/script/level.gd" id="1_7f35e"]
+[ext_resource type="PackedScene" uid="uid://cf3cb2f5yqfbi" path="res://res/scene/level/puzzle10.tscn" id="2_kny5r"]
+[ext_resource type="PackedScene" uid="uid://dev5qtp17yal0" path="res://res/scene/level/puzzle13.tscn" id="3_03j1f"]
+[ext_resource type="PackedScene" uid="uid://b234mmbc70e1q" path="res://res/scene/level/puzzle11a.tscn" id="4_hp3g3"]
+[ext_resource type="PackedScene" uid="uid://tf8v3e6oj0ox" path="res://res/scene/level/puzzle14.tscn" id="4_lcywx"]
+[ext_resource type="PackedScene" uid="uid://c2op2t8rnmxp" path="res://res/Interface/gui.tscn" id="5_awbgn"]
+[ext_resource type="Script" path="res://res/script/MMbtn.gd" id="6_gm4cf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnsqx"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0md1"]
+bg_color = Color(0, 0, 0, 0.513726)
+
+[sub_resource type="Animation" id="Animation_djvjp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xa166"]
+resource_name = "transition_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d8vf7"]
+resource_name = "transition_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.00832987, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rmyc"]
+_data = {
+"RESET": SubResource("Animation_djvjp"),
+"transition_in": SubResource("Animation_xa166"),
+"transition_out": SubResource("Animation_d8vf7")
+}
+
+[node name="level" type="Node"]
+process_mode = 3
+script = ExtResource("1_7f35e")
+levels = Array[PackedScene]([ExtResource("2_kny5r"), ExtResource("4_lcywx"), ExtResource("4_hp3g3"), ExtResource("3_03j1f"), ExtResource("3_03j1f")])
+level = 2
+default_sec = 120
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Control"]
+z_index = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rnsqx")
+
+[node name="GUI" parent="Control" instance=ExtResource("5_awbgn")]
+process_mode = 1
+offset_top = -1.0
+offset_bottom = -16.0
+script = null
+
+[node name="Label2" parent="Control/GUI/Panel/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(775, 16)
+fit_content = true
+scroll_active = false
+
+[node name="Label3" parent="Control/GUI/Panel/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(225, 50)
+
+[node name="pause_menu" type="Control" parent="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 736.0
+
+[node name="Panel" type="Panel" parent="Control/pause_menu"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i0md1")
+
+[node name="Panel" type="Panel" parent="Control/pause_menu/Panel"]
+z_index = 1
+layout_mode = 0
+offset_left = 475.0
+offset_top = 160.0
+offset_right = 805.0
+offset_bottom = 560.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/pause_menu/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 36
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reset" type="Button" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Reset"
+
+[node name="Select level" type="Button" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Select Level"
+script = ExtResource("6_gm4cf")
+
+[node name="resume" type="Button" parent="Control/pause_menu/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Resume
+"
+
+[node name="finished menu" type="Control" parent="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 736.0
+
+[node name="Panel" type="Panel" parent="Control/finished menu"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i0md1")
+
+[node name="Panel" type="Panel" parent="Control/finished menu/Panel"]
+z_index = 1
+layout_mode = 0
+offset_left = 475.0
+offset_top = 160.0
+offset_right = 805.0
+offset_bottom = 560.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/finished menu/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reset" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Try again"
+
+[node name="next" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Next level"
+
+[node name="Select level" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Return"
+
+[node name="fact" type="Control" parent="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p" type="Panel" parent="Control/fact"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1040.0
+offset_bottom = 585.0
+
+[node name="text" type="RichTextLabel" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
+
+[node name="adv" type="Button" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 377.0
+offset_right = 528.0
+offset_bottom = 441.0
+text = "return"
+
+[node name="Lvlmgr" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5rmyc")
+}
+
+[connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/next" to="." method="_next_pressed"]
+[connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/Select level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Control/fact/p/adv" to="." method="_on_adv_pressed"]
+
+[editable path="Control/GUI"]

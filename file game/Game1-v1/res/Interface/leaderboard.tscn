@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfqo0m8bnf6mq"]
+
+[sub_resource type="GDScript" id="GDScript_uo33g"]
+script/source = "extends Panel
+
+func set_leaderboard(leaderboarddata):
+	var rank = 1
+	$rank.text += \"[table=2][cell][b]Nama[/b]                                                                                              [/cell][cell][b]Rank[/b]        [/cell]\"
+	for data in leaderboarddata:	
+		$rank.text += \"[cell]\"+str(rank)+\". \"+ data[0]+\"[/cell][cell]\"+ \"%02d:%02d\" % [(data[1])/60, fmod((data[1]),60)] + \"[/cell]\"
+		rank += 1
+	$rank.text += \"[/table]\"
+func reset_leaderboard():
+	$rank.text = \"\"
+	self.visible = false
+		
+	
+"
+
+[node name="leaderboard" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.469
+anchor_bottom = 0.556
+offset_right = -0.320007
+offset_bottom = -0.320099
+script = SubResource("GDScript_uo33g")
+
+[node name="rank" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 21.0
+offset_right = -75.0
+offset_bottom = -28.9999
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 365.0
+offset_right = 330.0
+offset_bottom = 399.0
+text = "Return"
+
+[connection signal="pressed" from="reset" to="." method="reset_leaderboard"]

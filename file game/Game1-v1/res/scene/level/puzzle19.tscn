@@ -63,6 +63,7 @@ script = ExtResource("1_flc2t")
 text = "{0} bisa menghasilkan listrik dengan {1} cahaya {2}"
 box_count = 3
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "Panel surya (atau modul fotovoltaik) adalah perangkat yang mengubah energi matahari menjadi listrik dengan menggunakan efek fotovoltaik. Panel surya terdiri dari beberapa sel surya yang saling terhubung, yang masing-masing terbuat dari bahan semikonduktor, umumnya silikon, yang mampu menghasilkan listrik ketika terkena sinar matahari. "
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true

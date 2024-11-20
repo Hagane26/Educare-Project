@@ -90,9 +90,6 @@ offset_top = -1.0
 offset_bottom = -16.0
 script = null
 
-[node name="Label" parent="Control/GUI/Panel/HBoxContainer" index="0"]
-custom_minimum_size = Vector2(175, 50)
-
 [node name="Label2" parent="Control/GUI/Panel/HBoxContainer" index="1"]
 custom_minimum_size = Vector2(775, 16)
 fit_content = true
@@ -211,10 +208,47 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Try again"
 
+[node name="next" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Next level"
+
 [node name="Select level" type="Button" parent="Control/finished menu/Panel/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Return"
+
+[node name="fact" type="Control" parent="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p" type="Panel" parent="Control/fact"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1040.0
+offset_bottom = 585.0
+
+[node name="text" type="RichTextLabel" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
+
+[node name="adv" type="Button" parent="Control/fact/p"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 377.0
+offset_right = 528.0
+offset_bottom = 441.0
+text = "Next"
 
 [node name="Lvlmgr" type="Node" parent="."]
 
@@ -223,10 +257,42 @@ libraries = {
 "": SubResource("AnimationLibrary_5rmyc")
 }
 
-[connection signal="pressed" from="Control/GUI/Panel/HBoxContainer/Button" to="." method="_on_pause_button_pressed"]
+[node name="fact" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p" type="Panel" parent="fact"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1040.0
+offset_bottom = 585.0
+
+[node name="text" type="RichTextLabel" parent="fact/p"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
+bbcode_enabled = true
+
+[node name="adv" type="Button" parent="fact/p"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 377.0
+offset_right = 528.0
+offset_bottom = 441.0
+text = "return"
+
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/pause_menu/Panel/Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/finished menu/Panel/Panel/VBoxContainer/Select level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Control/fact/p/adv" to="." method="_on_adv_pressed"]
 
 [editable path="Control/GUI"]

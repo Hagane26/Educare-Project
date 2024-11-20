@@ -60,9 +60,10 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_wr2ml")
-text = "{} merupakan komponen listik yang {} energi listrik untuk digunakan nanti"
+text = "{0} merupakan komponen listik yang {1} energi listrik untuk digunakan nanti"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "Kapasitor adalah komponen elektronik yang berfungsi untuk menyimpan dan melepaskan energi dalam bentuk medan listrik. Kapasitor memiliki kemampuan untuk menyimpan muatan listrik di dalamnya, yang memungkinkan komponen ini untuk digunakan dalam berbagai aplikasi elektronika, termasuk penyaringan sinyal, penyimpanan energi, dan pengaturan arus dan tegangan dalam sirkuit."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true

@@ -2919,7 +2919,9 @@ sources/2 = SubResource("TileSetAtlasSource_hf3en")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_byneo")
-text = "Pencernaan kimia terjadi di {0}"
+text = "Hewan yang memiliki metamorfosis sempurna adalah {0}"
+fact = "Empat Tahap Perkembangan
+Hewan dengan metamorfosis sempurna melalui empat tahap: telur → larva → pupa → dewasa. Setiap tahap memiliki bentuk dan fungsi yang sangat berbeda. Contoh hewan yang mengalami metamorfosis sempurna termasuk kupu-kupu, ngengat, kumbang, lalat, dan lebah."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -2932,11 +2934,11 @@ tile_set = ExtResource("6_w1qll")
 
 [node name="Box" parent="." instance=ExtResource("6_jilri")]
 position = Vector2(256, 96)
-value = "Usus"
+value = "katak"
 
 [node name="Box2" parent="." instance=ExtResource("6_jilri")]
 position = Vector2(320, 160)
-value = "Mulut"
+value = "Kelinci"
 
 [node name="player" parent="." instance=ExtResource("7_0c1cb")]
 position = Vector2(288, 64)
@@ -2945,4 +2947,4 @@ position = Vector2(288, 64)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("8_mofdt")]
 position = Vector2(256, 192)
-target = Array[String](["Usus"])
+target = Array[String](["katak"])

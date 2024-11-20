@@ -2919,7 +2919,9 @@ sources/2 = SubResource("TileSetAtlasSource_upe80")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_wtvr0")
-text = "Zat gizi yang berfungsi sebagai sumber energi utama bagi tubuh adalah {0}"
+text = "Masa pubertas pada manusia dimulai dari {0} sampai dengan {1}  tahun "
+box_count = 2
+fact = "Pubertas adalah proses yang kompleks dan unik bagi setiap individu, yang melibatkan perubahan fisik, emosional, dan psikologis yang mempengaruhi kehidupan remaja menuju kedewasaan. Pubertas adalah proses yang kompleks dan unik bagi setiap individu, yang melibatkan perubahan fisik, emosional, dan psikologis yang mempengaruhi kehidupan remaja menuju kedewasaan."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -2932,11 +2934,15 @@ tile_set = ExtResource("6_mitga")
 
 [node name="Box" parent="." instance=ExtResource("6_168o1")]
 position = Vector2(256, 96)
-value = "Glukosa"
+value = "9"
 
 [node name="Box2" parent="." instance=ExtResource("6_168o1")]
 position = Vector2(192, 96)
-value = "Karbohidrat"
+value = "13"
+
+[node name="Box3" parent="." instance=ExtResource("6_168o1")]
+position = Vector2(320, 32)
+value = "15"
 
 [node name="player" parent="." instance=ExtResource("7_kk0p8")]
 position = Vector2(288, 64)
@@ -2944,5 +2950,10 @@ position = Vector2(288, 64)
 [node name="TargetHandler" type="Node" parent="."]
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("8_6etdp")]
+position = Vector2(192, 0)
+target = Array[String](["9"])
+
+[node name="Target2" parent="TargetHandler" instance=ExtResource("8_6etdp")]
 position = Vector2(128, 192)
-target = Array[String](["Karbohidrat"])
+id = 1
+target = Array[String](["15"])

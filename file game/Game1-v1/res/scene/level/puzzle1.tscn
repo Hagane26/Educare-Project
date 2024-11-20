@@ -59,7 +59,8 @@ sources/0 = SubResource("TileSetAtlasSource_r8cna")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_csc12")
-text = "{0} merupakan pembuluh darah yang membawa darah dari jantung ke seluruh tubuh"
+text = "tumbuhan Gymnospermae biasa disebut dengan tumbuhan berbiji {0}"
+fact = "Gymnospermae (atau gymnosperms) adalah kelompok tumbuhan berbunga tidak tertutup yang menghasilkan biji terbuka, yaitu biji yang tidak terbungkus dalam buah. Kata \"gymnospermae\" berasal dari bahasa Yunani yang berarti \"biji telanjang\" (gymnos = telanjang, sperma = biji). Tumbuhan ini berbeda dengan Angiospermae (tumbuhan berbunga sejati) yang bijinya terbungkus dalam buah."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -72,11 +73,11 @@ tile_set = ExtResource("6_t67ik")
 
 [node name="Box" parent="." instance=ExtResource("6_4iafl")]
 position = Vector2(256, 96)
-value = "Arteri"
+value = "tertutup"
 
 [node name="Box2" parent="." instance=ExtResource("6_4iafl")]
 position = Vector2(320, 160)
-value = "Pembuluh darah"
+value = "terbuka"
 
 [node name="player" parent="." instance=ExtResource("7_5hf8s")]
 position = Vector2(288, 64)
@@ -85,4 +86,4 @@ position = Vector2(288, 64)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("8_3dlo3")]
 position = Vector2(352, 32)
-target = Array[String](["Arteri"])
+target = Array[String](["terbuka"])

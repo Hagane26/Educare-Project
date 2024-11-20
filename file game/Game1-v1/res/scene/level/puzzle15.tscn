@@ -60,10 +60,13 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_jfrf3")
-text = "
-Komponen listik {0} digunakan untuk {1} arus listrik"
+text = "Komponen listik {0} digunakan untuk {1} arus listrik"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "
+Resistor adalah komponen elektronik yang berfungsi untuk membatasi atau mengatur aliran arus listrik dalam sebuah sirkuit. Dalam istilah teknis, resistor memiliki nilai resistansi tertentu yang menghambat aliran elektron, yang mengakibatkan pengurangan aliran arus listrik sesuai dengan hukum Ohm (V = I × R), di mana V adalah tegangan (volt), I adalah arus (ampere), dan R adalah resistansi (ohm).
+
+Resistor banyak digunakan dalam berbagai aplikasi elektronik, seperti dalam pengaturan arus, pengaturan tegangan, pembatas arus, dan untuk melindungi komponen lain dari kerusakan akibat arus berlebih."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true

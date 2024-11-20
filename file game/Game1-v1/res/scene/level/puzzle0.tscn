@@ -2919,9 +2919,11 @@ sources/2 = SubResource("TileSetAtlasSource_ap5if")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_4lepg")
-text = "Fungsi utama dari sel  {0} yaitu Membawa {1}"
+text = "makluk ovovivipar itu juga makluk yang berkembang biak dengan cara {0} dan {1}"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "
+Makhluk ovovivipar adalah jenis hewan yang memiliki cara reproduksi unik, di mana telur berkembang di dalam tubuh induknya hingga menetas, namun tidak ada pertukaran nutrisi langsung antara induk dan telur seperti pada mamalia vivipar. Platipus adalah contoh dari makluk ovovivipar"
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -2934,15 +2936,15 @@ tile_set = ExtResource("6_nqvve")
 
 [node name="Box" parent="." instance=ExtResource("6_cxn3t")]
 position = Vector2(416, 96)
-value = "darah merah"
+value = "Bertelur"
 
 [node name="Box2" parent="." instance=ExtResource("6_cxn3t")]
 position = Vector2(256, 192)
-value = "oksigen"
+value = "Beranak"
 
 [node name="Box3" parent="." instance=ExtResource("6_cxn3t")]
 position = Vector2(416, 32)
-value = "darah putih"
+value = "Membelah Diri"
 
 [node name="player" parent="." instance=ExtResource("7_hjdq3")]
 position = Vector2(288, 64)
@@ -2951,9 +2953,9 @@ position = Vector2(288, 64)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("8_dhmff")]
 position = Vector2(544, 32)
-target = Array[String](["darah merah"])
+target = Array[String](["Bertelur", "Beranak"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("8_dhmff")]
 position = Vector2(512, 224)
 id = 1
-target = Array[String](["oksigen"])
+target = Array[String](["Beranak", "Bertelur"])

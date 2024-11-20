@@ -60,9 +60,10 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_7obv2")
-text = "Organ berfungsi untuk mencerna makanan mengunakan zat {0} adalah {1}"
+text = "Ketika Seseorang tidak makan dalam waktu yang lama maka {0} dalam darah akan {1}"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "Glukosa adalah salah satu jenis gula sederhana yang merupakan sumber utama energi bagi tubuh. Glukosa berperan penting dalam metabolisme tubuh dan merupakan bentuk karbohidrat yang paling mudah digunakan oleh sel-sel tubuh untuk menghasilkan energi. Glukosa adalah sumber energi utama bagi tubuh, terutama untuk otak, otot, dan sel darah merah. Otak, meskipun hanya sekitar 2% dari berat tubuh, mengonsumsi sekitar 20% dari total energi tubuh, sebagian besar berupa glukosa."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -75,19 +76,19 @@ tile_set = ExtResource("3_wu565")
 
 [node name="Box" parent="." instance=ExtResource("4_tbynk")]
 position = Vector2(256, 192)
-value = "Lambung"
+value = "Glukosa"
 
 [node name="Box2" parent="." instance=ExtResource("4_tbynk")]
 position = Vector2(320, 128)
-value = "Asam"
+value = "Menurun"
 
 [node name="Box3" parent="." instance=ExtResource("4_tbynk")]
 position = Vector2(128, 128)
-value = "Urine"
+value = "Oksigen"
 
 [node name="Box4" parent="." instance=ExtResource("4_tbynk")]
 position = Vector2(256, 64)
-value = "Ginjal"
+value = "Menigkat"
 
 [node name="player" parent="." instance=ExtResource("5_108is")]
 position = Vector2(96, 64)
@@ -96,9 +97,9 @@ position = Vector2(96, 64)
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("6_3iwp7")]
 position = Vector2(320, 64)
-target = Array[String](["Asam"])
+target = Array[String](["Menurun"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("6_3iwp7")]
 position = Vector2(32, 160)
 id = 1
-target = Array[String](["Lambung"])
+target = Array[String](["Glukosa"])

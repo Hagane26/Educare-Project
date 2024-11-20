@@ -63,6 +63,7 @@ script = ExtResource("1_7obv2")
 text = "{0} dan {1} merupakan bahan yang bersifat non-magnetik."
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "Bahan yang bersifat non-magnetik adalah bahan yang tidak dipengaruhi oleh medan magnet, artinya bahan ini tidak akan tertarik atau dipengaruhi oleh magnet. Bahan non-magnetik tidak menghasilkan medan magnetnya sendiri, dan tidak dapat diperoleh sifat magnetis meskipun berada dalam medan magnet eksternal."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -101,4 +102,4 @@ target = Array[String](["Seng"])
 [node name="Target2" parent="TargetHandler" instance=ExtResource("6_3iwp7")]
 position = Vector2(289, 129)
 id = 1
-target = Array[String](["Aluminium"])
+target = Array[String](["Alumunium"])

@@ -2,58 +2,78 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7pmq"]
 bg_color = Color(0.146307, 0.139831, 0.127909, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_no561"]
 script/source = "extends Panel
 
 var level = \"\"
 var time = 0
-@onready var tx = $HBoxContainer/VBoxContainer/Label
 var unlock = true
-
+signal show_leaderboard(lvl)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	tx.text = \"Your Time %02d:%02d\" % [time/60, fmod(time,60)]
-	$HBoxContainer/Label.text = \"Level\"+str(int(level)+1)
-	$HBoxContainer/VBoxContainer/Button.disabled = !unlock
-func _on_button_pressed() -> void:
+	$HBoxContainer/Label.text = \"Level \"+str(int(level)+1)
+	$HBoxContainer/VBoxContainer/play.disabled = !unlock
+	$HBoxContainer/VBoxContainer/rank.disabled = !unlock
+	
+	
+
+func _on_rank_pressed() -> void:
+	show_leaderboard.emit(level)
+
+
+func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(load( \"res://res/scene/level\"+str(level)+\".tscn\"))
 "
 
 [node name="LevelButton" type="Panel"]
 custom_minimum_size = Vector2(900, 80)
-offset_right = 900.0
-offset_bottom = 80.0
+anchors_preset = -1
+anchor_right = 0.703
+anchor_bottom = 0.118
+offset_right = 0.159973
+offset_bottom = 0.0399933
 theme_override_styles/panel = SubResource("StyleBoxFlat_v7pmq")
 script = SubResource("GDScript_no561")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 25.0
-offset_top = -1.0
-offset_right = 950.0
-offset_bottom = 80.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(820, 0)
 layout_mode = 2
 text = "aaaaaaaaaaaaaaaaaa"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="rank" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 37)
+layout_direction = 1
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Your time 00:00"
+size_flags_vertical = 0
+text = "Rank"
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="play" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 37)
 layout_direction = 1
 layout_mode = 2
 size_flags_vertical = 0
 text = "Play"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/rank" to="." method="_on_rank_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/play" to="." method="_on_play_pressed"]

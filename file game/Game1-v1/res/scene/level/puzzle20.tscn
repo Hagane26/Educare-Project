@@ -60,9 +60,9 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_rddjx")
-text = "
-Ph 7 mengindikasikan bahwa sebuah senyawa bersifat {0}"
+text = "Ph 7 mengindikasikan bahwa sebuah senyawa bersifat {0}"
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "pH adalah ukuran konsentrasi ion hidrogen (H⁺) atau ion hidronium (H₃O⁺) dalam suatu larutan, yang menggambarkan sifat keasaman atau kebasaan larutan tersebut. Skala pH berkisar antara 0 hingga 14, di mana nilai pH menentukan apakah suatu larutan bersifat asam, netral, atau basa. maka jika pH mencapai nilai 7 maka senyawa tersebut bisa disebut netral"
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -92,7 +92,6 @@ position = Vector2(96, 256)
 
 [node name="Box8" parent="." instance=ExtResource("4_gjobn")]
 position = Vector2(352, 256)
-value = "Kebawah"
 
 [node name="Box9" parent="." instance=ExtResource("4_gjobn")]
 position = Vector2(224, 160)

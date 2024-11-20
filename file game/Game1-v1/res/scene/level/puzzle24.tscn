@@ -60,10 +60,13 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_jt1q6")
-text = "
-{0}{1} dan {2} adalah zat bersifat azam"
+text = "{0}{1} dan {2} adalah zat bersifat asam"
 box_count = 3
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "
+ChatGPT said:
+ChatGPT
+Zat asam adalah senyawa kimia yang, dalam larutan berair, menghasilkan ion hidrogen (H⁺) atau ion hidronium (H₃O⁺). Zat asam memiliki kemampuan untuk menurunkan pH suatu larutan menjadi lebih rendah dari 7. Asam memiliki berbagai sifat khas yang membedakannya dari basa, dan banyak digunakan dalam berbagai aplikasi, baik di industri, laboratorium, maupun kehidupan sehari-hari."
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true

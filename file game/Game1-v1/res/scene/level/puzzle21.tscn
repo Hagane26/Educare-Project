@@ -60,10 +60,10 @@ sources/0 = SubResource("TileSetAtlasSource_lbjjl")
 [node name="puzzle" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_rddjx")
-text = "
-Ph 6 {0} mengindikasikan bahwa sebuah senyawa bersifat {1}"
+text = "Ph 6 {0} mengindikasikan bahwa sebuah senyawa bersifat {1}"
 box_count = 2
 cam_limit = Array[int]([0, 0, 0, 0])
+fact = "pH adalah ukuran konsentrasi ion hidrogen (H⁺) atau ion hidronium (H₃O⁺) dalam suatu larutan, yang menggambarkan sifat keasaman atau kebasaan larutan tersebut. Skala pH berkisar antara 0 hingga 14, di mana nilai pH menentukan apakah suatu larutan bersifat asam, netral, atau basa. maka jika pH mencapai nilai 6 kebawah maka senyawa tersebut bisa disebut asam"
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -108,10 +108,10 @@ position = Vector2(256, 128)
 [node name="TargetHandler" type="Node" parent="."]
 
 [node name="Target" parent="TargetHandler" instance=ExtResource("6_b3815")]
-position = Vector2(192, 64)
+position = Vector2(384, 256)
 target = Array[String](["Kebawah"])
 
 [node name="Target2" parent="TargetHandler" instance=ExtResource("6_b3815")]
-position = Vector2(384, 256)
+position = Vector2(192, 64)
 id = 1
 target = Array[String](["Asam"])
